@@ -92,7 +92,7 @@
     .producto {
       background: #fff;
       border-radius: 12px;
-      padding: 20px;
+      padding: 25px 20px;
       text-align: center;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
@@ -104,7 +104,7 @@
 
     .precio {
       font-weight: bold;
-      margin-bottom: 5px;
+      margin-top: 5px;
     }
 
     /* ===== SECCIÓN PEDIDO FINAL ===== */
@@ -118,7 +118,12 @@
     .pedido-final h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2.2rem;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+    }
+
+    .pedido-final .mensaje-personalizado {
+      font-size: 1.05rem;
+      margin-bottom: 25px;
     }
 
     .pedido-final p {
@@ -149,7 +154,6 @@
       color: #fff;
       text-align: center;
       padding: 30px 20px;
-      margin-top: 0;
     }
 
     footer p {
@@ -200,27 +204,27 @@
 
     <div class="productos">
       <div class="producto">
-        <h3>Magdalenas con chips de chocolate</h3>
+        <h3>🧁 Magdalenas con chips de chocolate</h3>
         <div class="precio">$1500 c/u</div>
       </div>
 
       <div class="producto">
-        <h3>Flan casero</h3>
+        <h3>🍮 Flan casero</h3>
         <div class="precio">$$$</div>
       </div>
 
       <div class="producto">
-        <h3>Donas</h3>
+        <h3>🍩 Donas</h3>
         <div class="precio">$$$</div>
       </div>
 
       <div class="producto">
-        <h3>Brownies</h3>
+        <h3>🍫 Brownies</h3>
         <div class="precio">$$$</div>
       </div>
 
       <div class="producto">
-        <h3>Galletas caseras</h3>
+        <h3>🍪 Galletas caseras</h3>
         <div class="precio">$$$</div>
       </div>
     </div>
@@ -229,7 +233,12 @@
   <!-- PEDIDO FINAL -->
   <section class="pedido-final">
     <h2>¿Querés hacer tu pedido?</h2>
-    <p>Escribinos por WhatsApp y armamos tu pedido personalizado 💛</p>
+
+    <div class="mensaje-personalizado">
+      💬 Si querés un pedido personalizado, lo hablamos por mensaje
+    </div>
+
+    <p>Escribinos por WhatsApp y armamos tu pedido 💛</p>
 
     <a class="boton-pedido"
        href="https://wa.me/54926644684267?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20repostería"
