@@ -1,166 +1,256 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Repostería La Nanapostera</title>
 
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #fff7f3;
-      color: #333;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff7f0;
+      color: #4a2c2a;
     }
 
-    header {
-      background-image: url("header1.jpg");
-      background-size: cover;
-      background-position: center;
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      height: 70vh;
+      overflow: hidden;
+    }
+
+    .hero-images {
+      display: flex;
+      height: 100%;
+    }
+
+    .hero-images img {
+      width: 33.33%;
+      object-fit: cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+
+    .hero-text {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 80px 20px;
-      color: white;
+      color: #fff;
+      padding: 20px;
     }
 
-    header h1 {
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
       font-size: 3rem;
-      margin: 0;
+      margin-bottom: 10px;
     }
 
-    header p {
+    .hero-text p {
       font-size: 1.2rem;
-      margin-top: 10px;
+      max-width: 600px;
     }
 
-    section {
-      padding: 40px 20px;
+    /* ===== CONTENIDO ===== */
+    .container {
       max-width: 1100px;
       margin: auto;
+      padding: 50px 20px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
     }
 
     .productos {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      gap: 30px;
     }
 
     .producto {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px 20px;
       text-align: center;
-      padding-bottom: 20px;
-    }
-
-    .producto img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
 
     .producto h3 {
-      margin: 15px 10px 5px;
+      margin-bottom: 10px;
       font-size: 1.3rem;
     }
 
-    .producto p {
-      padding: 0 15px;
-      font-size: 0.95rem;
+    .precio {
+      font-weight: bold;
+      margin-top: 5px;
     }
 
+    /* ===== SECCIÓN PEDIDO FINAL ===== */
     .pedido-final {
+      background: #fff0e6;
       text-align: center;
-      margin-top: 60px;
-      padding: 40px 20px;
-      background-color: #ffe6dc;
-      border-radius: 20px;
+      padding: 70px 20px;
+      margin-top: 70px;
+    }
+
+    .pedido-final h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .pedido-final .mensaje-personalizado {
+      font-size: 1.05rem;
+      margin-bottom: 25px;
     }
 
     .pedido-final p {
+      margin-bottom: 30px;
       font-size: 1.1rem;
-      margin-bottom: 20px;
     }
 
     .boton-pedido {
-      background-color: #ff7a5c;
-      color: white;
-      padding: 15px 35px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 1.2rem;
       display: inline-block;
-      transition: background 0.3s ease;
+      background: #25d366;
+      color: white;
+      padding: 16px 36px;
+      font-size: 1.2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .boton-pedido:hover {
-      background-color: #e8684c;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
     }
 
+    /* ===== FOOTER ===== */
     footer {
+      background: #4a2c2a;
+      color: #fff;
       text-align: center;
-      padding: 25px;
-      background-color: #ffefe9;
-      margin-top: 40px;
-      font-size: 0.9rem;
+      padding: 30px 20px;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      .hero {
+        height: 60vh;
+      }
+
+      .hero-images {
+        flex-direction: column;
+      }
+
+      .hero-images img {
+        width: 100%;
+        height: 33.33%;
+      }
+
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>🍰 Repostería La Nanapostera</h1>
-    <p>Hecho con amor, dulzura y dedicación 💕</p>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-images">
+      <img src="img/header1.jpg" alt="Repostería artesanal">
+      <img src="img/header2.jpg" alt="Flan casero">
+      <img src="img/header3.jpg" alt="Brownies">
+    </div>
+
+    <div class="hero-text">
+      <h1>Repostería La Nanapostera</h1>
+      <p>Sabores caseros hechos con amor en San Luis, Argentina</p>
+    </div>
   </header>
 
-  <section>
-    <h2 style="text-align:center;">Nuestros Productos ✨</h2>
+  <!-- PRODUCTOS -->
+  <section class="container">
+    <h2>Nuestros Productos</h2>
 
     <div class="productos">
-
       <div class="producto">
-        <img src="img/torta1.jpg" alt="Tortas artesanales">
-        <h3>🎂 Tortas Artesanales</h3>
-        <p>Ideales para cumpleaños, eventos y momentos especiales.</p>
+        <h3>🧁 Magdalenas con chips de chocolate</h3>
+        <div class="precio">$1500 c/u</div>
       </div>
 
       <div class="producto">
-        <img src="img/budin.jpg" alt="Budines">
-        <h3>🍞 Budines Caseros</h3>
-        <p>Esponjosos, sabrosos y con ingredientes de calidad.</p>
+        <h3>🍮 Flan casero</h3>
+        <div class="precio">$$$</div>
       </div>
 
       <div class="producto">
-        <img src="img/cupcakes.jpg" alt="Cupcakes">
-        <h3>🧁 Cupcakes</h3>
-        <p>Perfectos para regalar o compartir algo dulce.</p>
+        <h3>🍩 Donas</h3>
+        <div class="precio">$$$</div>
       </div>
 
       <div class="producto">
-        <img src="img/galletas.jpg" alt="Galletas">
-        <h3>🍪 Galletas</h3>
-        <p>Crujientes y deliciosas, para acompañar el mate o café.</p>
+        <h3>🍫 Brownies</h3>
+        <div class="precio">$$$</div>
       </div>
 
+      <div class="producto">
+        <h3>🍪 Galletas caseras</h3>
+        <div class="precio">$$$</div>
+      </div>
     </div>
-
-    <div class="pedido-final">
-      <p>💬 Si quieres un pedido personalizado lo hablamos por mensaje</p>
-      <a 
-        class="boton-pedido"
-        href="https://wa.me/5492664684267"
-        target="_blank"
-      >
-        📲 Hacer un pedido
-      </a>
-    </div>
-
   </section>
 
+  <!-- PEDIDO FINAL -->
+  <section class="pedido-final">
+    <h2>¿Querés hacer tu pedido?</h2>
+
+    <div class="mensaje-personalizado">
+      💬 Si querés un pedido personalizado, lo hablamos por mensaje
+    </div>
+
+    <p>Escribinos por WhatsApp y armamos tu pedido 💛</p>
+
+    <a class="boton-pedido"
+       href="https://wa.me/54926644684267?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20repostería"
+       target="_blank">
+       Hacer pedido por WhatsApp
+    </a>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    📞 Pedidos por WhatsApp: <strong>2664 68-4267</strong><br>
-    © 2026 Repostería La Nanapostera
+    <p>📍 San Luis, Argentina</p>
+    <p>Pedidos por WhatsApp</p>
   </footer>
 
 </body>
