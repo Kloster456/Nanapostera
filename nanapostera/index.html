@@ -1,217 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Repostería La Nanapostera</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repostería Nana</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
 
-<style>
-:root{
-    --principal:#b85c38;
-    --secundario:#f3b391;
-    --fondo:#fff6ee;
-    --tarjeta:#ffffff;
-    --texto:#5a3e2b;
-}
+    body {
+      background-color: #fff3e8;
+      color: #4a2c1d;
+    }
 
-*{ box-sizing:border-box; }
+    header {
+      background-color: #d97b5c;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
 
-body{
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    background:var(--fondo);
-    color:var(--texto);
-    line-height:1.7;
-}
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
 
-/* HEADER CON IMÁGENES */
-.header{
-    position:relative;
-    height:85vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
-    overflow:hidden;
-}
+    header p {
+      font-size: 1.1rem;
+      font-style: italic;
+    }
 
-.header::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-        url("img/header1.jpg"),
-        url("img/header2.jpg"),
-        url("img/header3.jpg");
-    background-size:cover;
-    background-position:center;
-    animation:slider 18s infinite;
-    z-index:-1;
-}
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
 
-@keyframes slider{
-    0%{ background-image:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-        url("img/header1.jpg");}
-    33%{ background-image:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-        url("img/header2.jpg");}
-    66%{ background-image:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-        url("img/header3.jpg");}
-}
+    h2 {
+      margin-bottom: 15px;
+      color: #b4532a;
+    }
 
-/* TITULO */
-.header h1{
-    font-family:'Playfair Display',serif;
-    font-size:3.5em;
-    margin-bottom:15px;
-    letter-spacing:1px;
-}
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
 
-.header p{
-    font-size:1.2em;
-    max-width:600px;
-    margin:auto;
-}
+    .item {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
 
-/* SECCIONES */
-section{
-    max-width:1100px;
-    margin:auto;
-    padding:80px 20px;
-}
+    .item img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
 
-h2{
-    font-family:'Playfair Display',serif;
-    font-size:2.3em;
-    color:var(--principal);
-    text-align:center;
-    margin-bottom:50px;
-}
+    .pedido {
+      background-color: #ffe0cf;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 30px;
+    }
 
-/* MENU */
-.menu{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
+    .pedido a {
+      display: inline-block;
+      margin-top: 15px;
+      background-color: #25d366;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
 
-.item{
-    background:var(--tarjeta);
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    transition:.3s;
-}
+    .pedido a:hover {
+      background-color: #1ebe5d;
+    }
 
-.item:hover{
-    transform:translateY(-6px);
-}
-
-.item h3{
-    color:#8c3f2b;
-    margin-bottom:8px;
-}
-
-.precio{
-    font-weight:600;
-    color:var(--principal);
-    margin-top:10px;
-}
-
-/* PEDIDOS */
-.pedido{
-    background:linear-gradient(135deg,#ffe2cf,#fff0e6);
-    border-radius:30px;
-    padding:70px 20px;
-    text-align:center;
-}
-
-.btn-wsp{
-    display:inline-block;
-    background:#25D366;
-    color:white;
-    padding:20px 40px;
-    border-radius:60px;
-    text-decoration:none;
-    font-size:1.1em;
-    margin-top:30px;
-}
-
-/* FOOTER */
-footer{
-    background:var(--principal);
-    color:white;
-    text-align:center;
-    padding:25px;
-}
-</style>
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #6b4a3a;
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="header">
-    <div>
-        <h1>Repostería La Nanapostera</h1>
-        <p>Repostería casera hecha con amor, para endulzar tus momentos</p>
-    </div>
-</header>
+  <header>
+    <h1>Repostería Nana</h1>
+    <p>Dulzura casera hecha con amor 💕</p>
+  </header>
 
-<section>
-    <h2>Menú</h2>
+  <div class="container">
+
+    <h2>🍰 Nuestro menú</h2>
     <div class="menu">
-
-        <div class="item">
-            <h3>🧁 Magdalenas con chips de chocolate</h3>
-            <p>Esponjosas, dulces y cargadas de chips.</p>
-            <div class="precio">$1500 c/u</div>
-        </div>
-
-        <div class="item">
-            <h3>🍮 Flan</h3>
-            <p>Cremoso y bien casero.</p>
-            <div class="precio">$$$</div>
-        </div>
-
-        <div class="item">
-            <h3>🍩 Donas</h3>
-            <p>Tiernas y doradas.</p>
-            <div class="precio">$$$</div>
-        </div>
-
-        <div class="item">
-            <h3>🍫 Brownies</h3>
-            <p>Húmedos y bien chocolatosos.</p>
-            <div class="precio">$$$</div>
-        </div>
-
-        <div class="item">
-            <h3>🍪 Galletas caseras</h3>
-            <p>Crujientes y deliciosas.</p>
-            <div class="precio">$$$</div>
-        </div>
-
+      <div class="item">
+        <img src="magdalenas.jpg" alt="Magdalenas">
+        <p>Magdalenas</p>
+      </div>
+      <div class="item">
+        <img src="flan.jpg" alt="Flan">
+        <p>Flan</p>
+      </div>
+      <div class="item">
+        <img src="donas.jpg" alt="Donas">
+        <p>Donas</p>
+      </div>
+      <div class="item">
+        <img src="brownies.jpg" alt="Brownies">
+        <p>Brownies</p>
+      </div>
+      <div class="item">
+        <img src="galletas.jpg" alt="Galletas caseras">
+        <p>Galletas caseras</p>
+      </div>
     </div>
-</section>
 
-<section class="pedido">
-    <h2>Hacé tu pedido</h2>
-    <p>Pedidos dentro de la ciudad y provincia de San Luis.</p>
-    <a class="btn-wsp"
-       href="https://wa.me/5426644684267?text=Hola%20quiero%20hacer%20un%20pedido%20😊"
-       target="_blank">
-       Pedir por WhatsApp
-    </a>
-</section>
+    <div class="pedido">
+      <h2>📲 Hacé tu pedido</h2>
+      <p>Pedidos en San Luis, Argentina</p>
+      <a href="https://wa.me/54926644684267" target="_blank">
+        Pedir por WhatsApp
+      </a>
+    </div>
 
-<footer>
-    © 2026 Repostería La Nanapostera
-</footer>
+  </div>
+
+  <footer>
+    © Repostería Nana – San Luis, Argentina
+  </footer>
 
 </body>
 </html>
